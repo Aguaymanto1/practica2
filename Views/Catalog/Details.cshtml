@@ -2,19 +2,54 @@
 
 <h2>@Model.Titulo</h2>
 
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
 <p><strong>Ciudad:</strong> @Model.Ciudad</p>
 <p><strong>Dirección:</strong> @Model.Direccion</p>
 <p><strong>Tipo:</strong> @Model.Tipo</p>
-<p><strong>Dormitorios:</strong> @Model.Dormitorios</p>
-<p><strong>Baños:</strong> @Model.Banos</p>
-<p><strong>Metros cuadrados:</strong> @Model.MetrosCuadrados</p>
 <p><strong>Precio:</strong> @Model.Precio.ToString("C")</p>
 
-@if (!string.IsNullOrEmpty(Model.Imagen))
+<hr />
+
+<h4>Agendar visita</h4>
+<form asp-action="AgendarVisita" method="post">
+    <input type="hidden" name="inmuebleId" value="@Model.Id" />
+    <div class="mb-2">
+        <label>Fecha inicio</label>
+        <input type="datetime-local" name="fechaInicio" class="form-control" required />
+    </div>
+    <div class="mb-2">
+        <label>Fecha fin</label>
+        <input type="datetime-local" name="fechaFin" class="form-control" required />
+    </div>
+    <div class="mb-2">
+        <label>Notas</label>
+        <textarea name="notas" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Agendar</button>
+</form>
+
+<hr />
+
+<h4>Reserva</h4>
+@if (!(bool)ViewBag.ReservaActiva)
 {
-    <img src="@Model.Imagen" alt="Imagen del inmueble" style="max-width:400px;" />
+    <form asp-action="Reservar" method="post">
+        <input type="hidden" name="inmuebleId" value="@Model.Id" />
+        <button type="submit" class="btn btn-success">Reservar ahora (48h)</button>
+    </form>
+}
+else
+{
+    <p class="text-warning">Este inmueble ya tiene una reserva activa.</p>
 }
 
 <hr />
-<a href="#" class="btn btn-primary">Agendar visita</a> <!-- Placeholder -->
 <a asp-action="Index" class="btn btn-secondary">Volver al catálogo</a>
