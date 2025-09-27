@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-using Practica2.Models;
+using practica2.Models;
 
 namespace practica2.Data;
 

@@ -1,0 +1,85 @@
+@model IEnumerable<practica2.Models.Inmueble>
+@using practica2.Models
+
+<h2>Catálogo de Inmuebles</h2>
+
+<form method="get" class="mb-3">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <label>Ciudad:</label>
+    <input type="text" name="ciudad" value="@ViewBag.Ciudad" />
+
+    <label>Tipo:</label>
+    <select name="tipo">
+        <option value="">-- Todos --</option>
+        @foreach (var tipo in Enum.GetValues(typeof(TipoInmueble)))
+        {
+            <option value="@tipo" selected="@(ViewBag.Tipo?.ToString() == tipo.ToString())">@tipo</option>
+        }
+    </select>
+
+    <label>Precio mínimo:</label>
+    <input type="number" name="precioMin" value="@ViewBag.PrecioMin" />
+
+    <label>Precio máximo:</label>
+    <input type="number" name="precioMax" value="@ViewBag.PrecioMax" />
+
+    <label>Dormitorios mínimos:</label>
+    <input type="number" name="dormitorios" value="@ViewBag.Dormitorios" />
+
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Ciudad</th>
+            <th>Tipo</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Titulo</td>
+                <td>@item.Ciudad</td>
+                <td>@item.Tipo</td>
+                <td>@item.Precio.ToString("C")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Ver detalle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    Página @ViewBag.Page de @ViewBag.TotalPages
+    <div class="mt-2">
+        @if (ViewBag.Page > 1)
+        {
+            <a asp-action="Index"
+               asp-route-page="@(ViewBag.Page - 1)"
+               asp-route-ciudad="@ViewBag.Ciudad"
+               asp-route-tipo="@ViewBag.Tipo"
+               asp-route-precioMin="@ViewBag.PrecioMin"
+               asp-route-precioMax="@ViewBag.PrecioMax"
+               asp-route-dormitorios="@ViewBag.Dormitorios"
+               class="btn btn-secondary">Anterior</a>
+        }
+        @if (ViewBag.Page < ViewBag.TotalPages)
+        {
+            <a asp-action="Index"
+               asp-route-page="@(ViewBag.Page + 1)"
+               asp-route-ciudad="@ViewBag.Ciudad"
+               asp-route-tipo="@ViewBag.Tipo"
+               asp-route-precioMin="@ViewBag.PrecioMin"
+               asp-route-precioMax="@ViewBag.PrecioMax"
+               asp-route-dormitorios="@ViewBag.Dormitorios"
+               class="btn btn-secondary">Siguiente</a>
+        }
+    </div>
+</div>

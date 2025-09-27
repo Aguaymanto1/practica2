@@ -1,31 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using practica2.Models;
+using practica2.Data;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace practica2.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+   private readonly ApplicationDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+        // GET: /
+        public async Task<IActionResult> Index()
+        {
+            var inmuebles = await _context.Inmuebles
+                .Where(i => i.Activo)
+                .ToListAsync();
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+            return View(inmuebles);
+        }
 }

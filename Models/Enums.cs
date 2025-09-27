@@ -1,4 +1,4 @@
-namespace Practica2.Models
+namespace practica2.Models
 
 
 {
