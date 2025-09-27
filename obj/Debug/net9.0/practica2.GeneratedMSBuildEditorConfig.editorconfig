@@ -28,6 +28,18 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Users/j3930/Desktop/practica2/Areas/brokers/Views/Agenda/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcYnJva2Vyc1xWaWV3c1xBZ2VuZGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/j3930/Desktop/practica2/Areas/brokers/Views/Inmuebles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcYnJva2Vyc1xWaWV3c1xJbm11ZWJsZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/j3930/Desktop/practica2/Areas/brokers/Views/Reservas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcYnJva2Vyc1xWaWV3c1xSZXNlcnZhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/j3930/Desktop/practica2/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

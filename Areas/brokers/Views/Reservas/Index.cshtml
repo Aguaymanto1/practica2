@@ -1,0 +1,29 @@
+@model IEnumerable<practica2.Models.Reserva>
+
+<h2>Reservas Activas</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Inmueble</th>
+            <th>Usuario</th>
+            <th>Expira</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Inmueble.Titulo</td>
+                <td>@r.UsuarioId</td>
+                <td>@r.FechaExpiracion</td>
+                <td>
+                    <form asp-action="Liberar" method="post">
+                        <input type="hidden" name="id" value="@r.Id" />
+                        <button type="submit" class="btn btn-danger">Liberar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
