@@ -1,0 +1,35 @@
+@model IEnumerable<practica2.Models.Visita>
+
+<h2>Agenda de Hoy</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Inmueble</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.Inmueble.Titulo</td>
+                <td>@v.FechaInicio</td>
+                <td>@v.FechaFin</td>
+                <td>@v.Estado</td>
+                <td>
+                    <form asp-action="CambiarEstado" method="post">
+                        <input type="hidden" name="id" value="@v.Id" />
+                        <select name="nuevoEstado">
+                            <option value="Confirmada">Confirmar</option>
+                            <option value="Cancelada">Cancelar</option>
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-primary">Actualizar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
