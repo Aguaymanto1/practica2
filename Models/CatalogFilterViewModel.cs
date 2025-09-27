@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using Practica2.Models;
+using practica2.Models;
 
 
 namespace Practica2.Models

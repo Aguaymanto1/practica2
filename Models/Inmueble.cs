@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace Practica2.Models
+namespace practica2.Models
 {
 public class Inmueble
 {

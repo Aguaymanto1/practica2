@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Practica2.Models
+namespace practica2.Models
 {
 public class Reserva
 {
