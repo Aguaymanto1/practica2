@@ -413,3 +413,4 @@ C:\Users\j3930\Desktop\practica2\obj\Debug\net9.0\refint\practica2.dll
 C:\Users\j3930\Desktop\practica2\obj\Debug\net9.0\practica2.pdb
 C:\Users\j3930\Desktop\practica2\obj\Debug\net9.0\practica2.genruntimeconfig.cache
 C:\Users\j3930\Desktop\practica2\obj\Debug\net9.0\ref\practica2.dll
+C:\Users\j3930\Desktop\practica2\obj\Debug\net9.0\practica2.sourcelink.json
